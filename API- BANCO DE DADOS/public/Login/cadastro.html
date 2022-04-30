@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="imagex/png" href="logosensoruva.ico">
+    <title>PURPLE TECH | Cadastro</title>
+</head>
+<body>
+    <header class="header">
+        <img src="uvasensor.png" style="height: 70px; width: 100px;" class="logo">
+          <ul class="menu">
+            <li><a href="index.html">Home &nbsp; &nbsp;|</a></li>
+            <li><a href="login.html">Login &nbsp; &nbsp;|</a></li>
+            <li><a href="register.html">Cadastro &nbsp; &nbsp;|</a></li>
+            <li><a href="support.html">Suporte</a></li> 
+            <li><a href="simulador.html" class="botao">SIMULADOR</a></li>
+        </ul>
+        </div>  
+      </header>
+    <div class="fundoGradianteCadastro">
+        <div class="Texto">CADASTRO PURPLE TECH</div> <br>
+        <div class="fundoBrancoCadastro">
+             Digite o nome da sua Empresa <br> <br>
+             <input placeholder="Empresa:" id="i_nome"> <br> <br>
+
+             Digite o CNPJ <br> <br>
+             <input placeholder="cnpj:" id="i_cnpj"> <br> <br>
+             Digite o CEP<br> <br>
+             <input placeholder="cnpj:" id="i_cep"> <br> <br>
+
+             Digite o Telefone <br> <br>
+             <input placeholder="Ex:11-44714472" id="i_telefone"> <br> <br>
+
+             Digite o Email <br> <br>
+             <input placeholder="Email" id="i_Email"> <br> <br>
+
+             Digite sua Senha <br> <br>
+             <input type="password" placeholder="********" id="i_senha"> <br> <br>
+
+             Confirme Senha <br> <br>
+             <input type="password" placeholder="********" id="i_confirma"> <br> <br>
+
+             <button class="BotaoLogin" onclick="Cadastrar()">Cadastrar</button>
+             <div id="div_invalido" style="display: none;"> <span id="frase_erro"></span></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="center">
+          <p>PurpleTech - Todos os direitos reservados - 2022</p>
+        </div>
+        <br>
+      </div>
+    
+</body>
+</html>
+<script>
+    function Cadastrar(){
+        aguardar();
+
+var nomeVar = i_nome.value;
+var cnpjVar =  i_cnpj.value;
+var cepvar= i_cep.value;
+var telVar =   i_tel.value;
+var emailVar = i_email.value;
+var senhaVar = i_senha.value;
+var confirmaVar = i_confirma.value;
+
+if (nomeVar == "" || cnpjVar == ""||cepVar=="" || telVar == "" || emailVar == "" || senhaVar=="" || confirmaVar== "" ) {
+    div_invalido.style.display = "block"
+    div_invalido.innerHTML= "Preencha todos os campos para prosseguir!"
+   
+
+    finalizarAguardar();
+    return false;
+}
+else {
+    setInterval(sumirMensagem, 5000)
+}
+
+if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+    div_invalido.style.display = "block"
+    frase_erro.innerHTML = "Email inválido! Tente novamente.";
+    finalizarAguardar();
+    return false;
+}
+else {
+    setInterval(sumirMensagem, 5000)
+}
+
+if (senhaVar != confirmaVar) {
+    div_invalido.style.display = "block"
+    frase_erro.innerHTML = "As senhas não coincidem!";
+    finalizarAguardar();
+    return false;
+}
+else {
+    setInterval(sumirMensagem, 5000)
+}
+
+
+fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        nomeServer: nomeVar,
+        cnpjServer: cnpjVar,
+        telServer: telVar,
+        cepserver: cepVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+        div_invalido.style.display = "block"
+        frase_erro.innerHTML = "Cadastro realizado com sucesso!";
+        window.location = "login.html";
+        limparFormulario();
+        finalizarAguardar();
+    } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+    finalizarAguardar();
+});
+
+return false;
+}
+
+function sumirMensagem() {
+div_invalido.style.display = "none"
+}
+        
+    
+</script>

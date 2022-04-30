@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Style.css"/>
+  <title>Purple - Home</title>
+</head>
+<body>
+
+  <header class="header">
+    <img src="logo.png" class="logo" alt="logo">
+    <nav class="menu">
+        <a href="index.html">Home</a>&nbsp;| &nbsp;
+        <a href="login.html">Login</a>&nbsp;| &nbsp;
+        <a href="aboutus.html">Sobre nós</a>&nbsp;| &nbsp;
+        <a href="support.html">Suporte</a> 
+    </nav>
+</header>
+  
+  <div class="wrapper">
+    <main>
+      <section class="module parallax imagemHome6">
+        <h1>Cadastre-se</h1>
+        <div class="card">
+        <span>Insira o email</span> <br>
+        
+        <input type="text" class="email" placeholder="Seu email"> <br><br>
+  
+        <span> Insira sua senha</span> <br>
+  
+        <input type="password" placeholder="Sua senha" id="i_senha"   minlength="8" maxlength="20"> <br><br> 
+  
+        <span> Confirme sua senha</span> <br>
+  
+        <input type="password" class="ConfirmaSenha" id="i_confirma"data-ls-module="charCounter" minlength="8" maxlength="20" placeholder="Confirme sua senha"> <br> <br> 
+  
+        <button class="btn" id="b_botao"onclick="Cadastrar()"> 
+          Confirmar
+        </button>
+        </div>
+        <div id="div_invalido"></div>
+  
+        </div>   
+    </section>
+    </main>
+  </div>
+
+</body>
+</html>
+<script>
+  function Cadastrar(){
+    var Senha= i_senha.value
+    var Confirma= i_confirma.value
+
+    if(Senha==Confirma){
+      window.location.href="../Home&Simulador/index.html"
+    } 
+    else{ div_invalido.innerHTML= `Senha inválida!`
+
+    }
+  }
+</script>

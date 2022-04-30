@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="imagex/png" href="logosensoruva.ico">
+    <title>PURPLE TECH | Login</title>
+</head>
+<body>
+    <header class="header">
+        <img src="uvasensor.png" style="height: 70px; width: 100px;" class="logo">
+          <ul class="menu">
+            <li><a href="index.html">Home &nbsp; &nbsp;|</a></li>
+            <li><a href="login.html">Login &nbsp; &nbsp;|</a></li>
+            <li><a href="register.html">Cadastro &nbsp; &nbsp;|</a></li>
+            <li><a href="support.html">Suporte</a></li> 
+            <li><a href="simulador.html" class="botao">SIMULADOR</a></li>
+        </ul>
+        </div>  
+      </header>
+    <div class="fundoGradiante">
+        <div class="Texto">ACESSO PURPLE TECH</div> <br>
+        <div class="fundoBranco">
+            
+            Digite seu E-mail <br> <br>
+             <input placeholder="E-mail:" id="i_email"> <br> <br>
+             
+             Digite sua Senha <br> <br>
+             <input type="password" placeholder="********" id="i_senha"> <br> <br>
+
+             <button class="BotaoLogin" onclick="Acesso()">Entrar</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="center">
+          <p>PurpleTech - Todos os direitos reservados - 2022</p>
+        </div>
+        <br>
+      </div>
+    
+</body>
+</html>
+<script>
+    function Acesso(){
+        var Email = i_email.value
+        var Pass = Number(i_senha.value)
+
+        if(Email == "Fernando.Brandão@sptech.school" && Pass == 1234){
+            alert('AUTENTICADO COM SUCESSO!')
+        }else{
+            alert('FALHA NA AUTENTICAÇÃO, VERIFICAR E-MAIL E SENHA!') 
+        }
+    }
+</script>

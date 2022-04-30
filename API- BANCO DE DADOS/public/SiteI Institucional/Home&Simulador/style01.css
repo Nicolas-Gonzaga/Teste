@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.centerRoseWine{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+html,body{
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+header{
+    height: 200px;
+    padding: 20px 0;
+}
+
+.logo{
+    width: 50%;
+}
+
+.menu{
+    padding-top: 30px;
+    width: 50%;
+    text-align: right;
+}
+
+.menu a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px; 
+}
+
+section.about{
+    height: calc(100% - 200px);
+    position: relative;
+}
+
+.extrasRoseWine{
+    position: absolute;
+    bottom: -400px;
+    right: -400px;
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    background-color: #FF7670;
+}
+
+.correction{
+	bottom: 100%;
+	right: 100%;
+	width: 60%;
+	height: 60%;
+}
+
+.roseWineText h1{
+    font-size: 40px;
+}
+
+.roseWineText p{
+    margin: 20px 0;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    max-width: 800px;
+}
+
+.roseWineText button{
+    border: 0;
+    background-color: #FF7670;
+    color: white;
+    border-radius: 10px 0px 10px 0px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+}

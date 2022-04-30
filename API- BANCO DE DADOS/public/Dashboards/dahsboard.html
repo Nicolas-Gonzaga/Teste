@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard PurpleTech</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="shortcut icon" type="imagex/png" href="logosensoruva.ico">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="h1_armazen">armazem 1 - Vinho Branco</h1>
+            <select class="sel_armazem" id="idsel_armazem">
+                <option value="">-Selecione o armazem-</option>
+                <option value="1">Armazem 1</option>
+                <option value="2">Armazem 2</option>
+                <option value="3">Armazem 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="conteudo">
+        <div class="div_kpi1">
+            <span class="atual1">Temperatura Atual</span>
+            <div class="num1">
+                <span class="valor1">13ºC</span>
+            </div>
+        </div>
+
+            <div class="div_kpi2">
+                <span class="media1">Temperatura Média</span>
+                <div class="num2">
+                    <span class="valor2">11ºC</span>
+                </div>
+            </div>
+                <div class="div_kpi3">
+                    <span class="atual2">Umidade Atual</span>
+                    <div class="num3">
+                        <span class="valor3">40%</span>
+                    </div>
+                </div>
+
+                    <div class="div_kpi4">
+                        <span class="media2">Umidade Média</span>
+                        <div class="num4">
+                            <span class="valor4">60%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="graficos" id="div_graficos">
+                    <div class="grafico">
+                        <section style="width:100%">
+                            <canvas id="dht11Umidade"></canvas>
+                        </section>
+                    </div>
+                    <div class="grafico2">
+                        <section style="width: 100%;">
+                            <canvas id="dht11Temperatura"></canvas>
+                        </section>
+                    </div>
+                </div>
+
+               
+                
+</body>
+
+</html>
+
+<script>
+    var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
+        contextoDht11Umidade.canvas.width = 1000;
+        contextoDht11Umidade.canvas.height = 500;
+        var dht11Umidade = new Chart(
+            contextoDht11Umidade,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Umidade',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                        backgroundColor: ['#89cff0']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+               /* -- dht11Temperatura -- */
+               var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
+        contextoDht11Temperatura.canvas.width = 1000;
+        contextoDht11Temperatura.canvas.height = 500;
+        var dht11Temperatura = new Chart(
+            contextoDht11Temperatura,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: "Temperatura",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                        backgroundColor: ['#ff7f7f']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        
+</script>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" type="imagex/png" href="logosensoruva.ico">
+  <title>Purple - Home</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <img src="uvasensor.png" style="height: 70px; width: 100px;" class="logo">
+      <ul class="menu">
+        <li><a href="index.html">Home &nbsp; &nbsp;|</a></li>
+        <li><a href="login.html">Login &nbsp; &nbsp;|</a></li>
+        <li><a href="register.html">Cadastro &nbsp; &nbsp;|</a></li>
+        <li><a href="support.html">Suporte</a></li> 
+        <li><a href="simulador.html" class="botao">SIMULADOR</a></li>
+    </ul>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <main>  
+      <section class="module parallax imagemHome1">
+        <br><br><br><br><br><br><br><br><br>
+
+        <h1>Tradição & Tecnologia</h1>
+      </section>
+
+      <section class="module content">
+        <div class="container">
+          <div class="caixaDeTexto">
+            <h2>Conheça os nossos serviços</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark> <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark>
+            <br><br>
+            <button class="button">Saiba Mais</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="module parallax imagemHome2">
+        
+        <h1>Simulador Financeiro</h1>
+      </section>
+
+      <section class="module content">
+        <div class="container">
+          <div class="caixaDeTexto">
+            <h2>Simule as vantagens do investimento</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark> <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark>
+            <br><br>
+            <button class="button">Saiba Mais</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="module parallax imagemHome3">
+        <h1>Tipos de Vinho</h1>
+      </section>
+
+      <section class="module content">
+        <div class="container">
+          <div class="caixaDeTexto">
+            <h2>Conheça as carácteristicas de cada tipo de vinho</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark> <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam reiciendis unde voluptatem
+            dignissimos!<mark>Adipisci alias rerum commodi ad excepturi. Quod aut maxime non architecto numquam vel et,
+              magnam eius!</mark>
+            <br><br>
+            <button class="button01" id="abrir" onclick="selecionar()">Tipos de Vinho</button><br>
+            <div id="modal_container" class="modal_container">
+              <div class="modal">
+                <h1>Selecione o tipo de vinho</h1>
+                <h2></h2>
+                <p>
+                  <select class="select" id="sel_tipoDeVinho" onchange="location = this.value;">
+                    <option value="selSel">Selecione o tipo de vinho</option>
+                    <option value="vinhoTinto.html">Vinho Tinto</option>
+                    <option value="vinhoBranco.html">Vinho Branco</option>
+                    <option value="vinhoVerde.html">Vinho Verde</option>
+                    <option value="vinhoRose.html">Vinho Rose</option>
+                    <option value="espumantes.html">Espumantes</option>
+                  </select>                
+                </p>
+                <button class="button" id="fechar">
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <div class="footer">
+    <div class="center">
+      <p>PurpleTech - Todos os direitos reservados - 2022</p>
+    </div>
+    <br>
+  </div>
+
+</body>
+
+</html>
+<script>
+  const abrir = document.getElementById('abrir');
+    const modal_container = document.getElementById('modal_container');
+    const fechar = document.getElementById('fechar');
+
+    abrir.addEventListener('click', () => {
+      modal_container.classList.add('show');
+    });
+
+    fechar.addEventListener('click', () => {
+      modal_container.classList.remove('show');
+    });
+
+
+</script>
